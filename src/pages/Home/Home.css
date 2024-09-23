@@ -1,0 +1,60 @@
+.home{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.home-img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+
+.home-img img{
+    margin-top: -160px;
+    width: 80%;
+    animation: op 2s ease-in-out infinite;
+}
+
+.btn{
+    position: absolute;
+    background: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    bottom: 100px;
+    right: 0px;
+    padding: 20px 40px;
+    cursor: pointer;
+}
+
+@keyframes op {
+    0%{
+        opacity: .5;
+    }
+    20%{
+        opacity: .6;
+    }
+    40%{
+        opacity: .7;
+    }
+    60%{
+        opacity: .8;
+    }
+    80%{
+        opacity: .8;
+    }
+    90%{
+        opacity: .9;
+    }
+    100%{
+        opacity: 1;
+    }
+}
