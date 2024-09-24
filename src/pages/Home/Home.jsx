@@ -3,14 +3,24 @@ import "./Home.css";
 
 import TIE from "../../assets/tie.jpg";
 import { Link } from "react-router-dom";
+import useStore from "../../store/store";
 
 const Home = () => {
+  const { isIntract, setIntraction } = useStore();
+  
   return (
     <div className="home">
       <div className="home-img">
         <img src={TIE} alt="" />
       </div>
-      <Link to="/dashboard" className="btn">
+      <Link
+        to="/dashboard"
+        className="btn"
+        onClick={() => {
+          setIntraction();
+          console.log(isIntract)
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={130}

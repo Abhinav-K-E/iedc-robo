@@ -2,8 +2,10 @@ import React from "react";
 import "./Dashboard.css";
 import BG from "../../assets/Vector.png";
 import { Link } from "react-router-dom";
+import useStore from "../../store/store";
 
 const Dashboard = () => {
+  const { isIntract, setIntraction } = useStore();
   return (
     <div className="dash">
       <h1 className="head">
@@ -22,7 +24,11 @@ const Dashboard = () => {
       </h1>
       <div className="cards">
         <div className="cards-inline">
-          <Link to='/about' className="card">
+          <Link
+            to="/about"
+            className="card"
+            onClick={() => setIntraction(!isIntract)}
+          >
             <div className="card-name">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +59,11 @@ const Dashboard = () => {
               </svg>
             </div>
           </Link>
-          <Link className="card" to='/gallery'>
+          <Link
+            className="card"
+            to="/gallery"
+            onClick={() => setIntraction(!isIntract)}
+          >
             <div className="card-name">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +95,11 @@ const Dashboard = () => {
             </div>
           </Link>
         </div>
-        <Link to='/events' className="cards-inline">
+        <Link
+          to="/events"
+          className="cards-inline"
+          onClick={() => setIntraction(!isIntract)}
+        >
           <div className="card">
             <div className="card-name">
               <svg
