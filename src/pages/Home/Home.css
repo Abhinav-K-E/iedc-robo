@@ -18,7 +18,6 @@
 .home-img img{
     margin-top: -160px;
     width: 80%;
-    animation: op 2s ease-in-out infinite;
 }
 
 .btn{
@@ -33,28 +32,4 @@
     right: 0px;
     padding: 20px 40px;
     cursor: pointer;
-}
-
-@keyframes op {
-    0%{
-        opacity: .5;
-    }
-    20%{
-        opacity: .6;
-    }
-    40%{
-        opacity: .7;
-    }
-    60%{
-        opacity: .8;
-    }
-    80%{
-        opacity: .8;
-    }
-    90%{
-        opacity: .9;
-    }
-    100%{
-        opacity: 1;
-    }
 }
