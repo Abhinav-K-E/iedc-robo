@@ -1,7 +1,7 @@
 import React from "react";
 import "./gallery.css";
 
-const gallery = () => {
+const Gallery = () => {
   return (
     <div className="gallery">
       <div className="head">
@@ -28,4 +28,4 @@ const gallery = () => {
   );
 };
 
-export default gallery;
+export default Gallery;
