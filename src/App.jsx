@@ -8,6 +8,7 @@ import Events from "./pages/Events/Events";
 import { Route, Routes } from "react-router-dom";
 import useStore from "./store/store";
 import { getRequest } from "./utils/Request";
+import VideoPage from "./pages/VideoPage/VideoPage";
 
 const App = () => {
   const { isIntract, setIntraction } = useStore();
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/head" element={<VideoPage />} />
       </Routes>
     </div>
   );
