@@ -14,18 +14,10 @@ const App = () => {
   useEffect(() => {
     getRequest();
   }, [isIntract]);
-  document.addEventListener("touchstart", () => {
+  document.addEventListener("click", () => {
     setIntraction();
   });
-  document.addEventListener("touchmove", () => {
-    setIntraction();
-  });
-  document.addEventListener("mousedown", () => {
-    setIntraction();
-  });
-  document.addEventListener("mousemove", () => {
-    setIntraction();
-  });
+
   return (
     <div className="wrapper">
       <Routes>
