@@ -14,9 +14,6 @@ const App = () => {
   useEffect(() => {
     getRequest();
   }, [isIntract]);
-  document.addEventListener("click", () => {
-    setIntraction();
-  });
 
   return (
     <div className="wrapper">
