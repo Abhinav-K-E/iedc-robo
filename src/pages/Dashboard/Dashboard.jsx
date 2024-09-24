@@ -1,6 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 import BG from "../../assets/Vector.png";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -21,7 +22,7 @@ const Dashboard = () => {
       </h1>
       <div className="cards">
         <div className="cards-inline">
-          <div className="card">
+          <Link to='/about' className="card">
             <div className="card-name">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +52,7 @@ const Dashboard = () => {
                 />
               </svg>
             </div>
-          </div>
+          </Link>
           <div className="card">
             <div className="card-name">
               <svg
