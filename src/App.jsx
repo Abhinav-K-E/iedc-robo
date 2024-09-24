@@ -10,10 +10,13 @@ import useStore from "./store/store";
 import { getRequest } from "./utils/Request";
 
 const App = () => {
-  const { isIntract } = useStore();
+  const { isIntract, setIntraction } = useStore();
   useEffect(() => {
     getRequest();
   }, [isIntract]);
+  window.addEventListener("ontouchend", (event) => {
+    setIntraction(!isIntract);
+  });
   return (
     <div className="wrapper">
       <Routes>
