@@ -85,7 +85,7 @@ const Dashboard = () => {
             </div>
           </Link>
         </div>
-        <div className="cards-inline">
+        <Link to='/events' className="cards-inline">
           <div className="card">
             <div className="card-name">
               <svg
@@ -117,7 +117,7 @@ const Dashboard = () => {
               </svg>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
       <img src={BG} alt="" className="bg" />
     </div>
