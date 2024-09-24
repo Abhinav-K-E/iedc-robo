@@ -53,7 +53,7 @@ const Dashboard = () => {
               </svg>
             </div>
           </Link>
-          <div className="card">
+          <Link className="card" to='/gallery'>
             <div className="card-name">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ const Dashboard = () => {
                 />
               </svg>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="cards-inline">
           <div className="card">

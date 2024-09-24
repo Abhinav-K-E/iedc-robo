@@ -1,0 +1,60 @@
+.gallery {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;;
+}
+section {
+  --childs: 5;
+  --gap: 10px;
+  background: black;
+  border: 10px solid;
+  width: min(80%, 1000px);
+  display: flex;
+  gap: var(--gap);
+}
+
+.box {
+  width: calc((100% / var(--childs)));
+  box-sizing: border-box;
+  height: min(40vmin, 450px);
+  background-color: white;
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: width 300ms 50ms ease-in-out;
+}
+
+.box:hover {
+  width: calc((100% / (var(--childs) - 2)));
+}
+
+section:has(.box:hover) .box:not(:hover) {
+  width: calc((100% / (var(--childs) + 1)));
+}
+
+.box-1 {
+  background-image: url("https://staticctf.akamaized.net/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4xBy25QhsXKnSDTBvupM7k/46fc453dc3f9434167601fdfe1ed9a22/meta-image-general.jpg");
+}
+
+.box-2 {
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/975/453/226/counter-strike-cs-go-wallpaper-preview.jpg");
+}
+
+.box-3 {
+  background-image: url("https://images.unsplash.com/photo-1630481331483-336ed0bac999?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHhib3glMjBjb250cm9sbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60");
+}
+
+.box-4 {
+  background-image: url("https://cdn.dribbble.com/users/2976379/screenshots/5751717/battlefield_v.jpg");
+}
+
+.box-5 {
+  background-image: url("https://a-static.besthdwallpaper.com/tom-clancy-s-ghost-recon-wildlands-wallpaper-2800x2100-2655_28.jpg");
+}

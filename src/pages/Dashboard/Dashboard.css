@@ -5,11 +5,13 @@
   padding: 40px;
   position: relative;
   padding-top: 60px;
+  overflow: hidden;
 }
 
 .bg {
   position: absolute;
   bottom: 0px;
+  left: 0px;
   width: 100%;
   z-index: 0;
 }
