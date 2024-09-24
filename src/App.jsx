@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -12,7 +12,13 @@ import VideoPage from "./pages/VideoPage/VideoPage";
 
 const App = () => {
   const { isIntract, setIntraction } = useStore();
+  const isInitialMount = useRef(true);
+
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
     getRequest();
   }, [isIntract]);
 
