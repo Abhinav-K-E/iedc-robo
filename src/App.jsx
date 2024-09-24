@@ -14,8 +14,17 @@ const App = () => {
   useEffect(() => {
     getRequest();
   }, [isIntract]);
-  window.addEventListener("ontouchend", (event) => {
-    setIntraction(!isIntract);
+  document.addEventListener("touchstart", () => {
+    setIntraction();
+  });
+  document.addEventListener("touchmove", () => {
+    setIntraction();
+  });
+  document.addEventListener("mousedown", () => {
+    setIntraction();
+  });
+  document.addEventListener("mousemove", () => {
+    setIntraction();
   });
   return (
     <div className="wrapper">

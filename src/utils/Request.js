@@ -3,11 +3,10 @@ export const getRequest = async () => {
     const response = await fetch(
       "https://kangaroo-tops-coral.ngrok-free.app/body_update?interacting=true",
       {
-        headers: { "ngrok-skip-browser-warning": "69420" }, // Bypass ngrok browser warning
+        headers: { "ngrok-skip-browser-warning": "69420" }, 
       }
     );
 
-    // Check if the response is OK
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
