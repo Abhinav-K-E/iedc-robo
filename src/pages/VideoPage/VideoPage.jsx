@@ -1,29 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./VideoPage.css";
 import ReactPlayer from "react-player";
-import IDLE from "../../assets/hi.mp4";
+import IDLE from "../../assets/idle.mp4";
 import HI from "../../assets/hi.mp4";
-import LOOKDOWN from "../../assets/hi.mp4";
+import LOOKDOWN from "../../assets/lookdown.mp4";
 
-import { useState } from "react";
+import { baseUrl } from "../../contants";
+
 const VideoPage = () => {
-  const videos = [IDLE, HI, LOOKDOWN];
+  const [currentVideo, setCurrentVideo] = useState(IDLE);
 
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const handleNextVideo = async () => {
+    try {
+      const response = await fetch(`${baseUrl}/head_status`, {
+        headers: { "ngrok-skip-browser-warning": "69420" },
+      });
 
-  const handleNextVideo = () => {
-    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+      if (response.ok) {
+        setCurrentVideo(IDLE);
+        const data = await response.json();
+        console.log("Fetched data:", data.emotion);
+
+        switch (data.emotion) {
+          case "lookDown":
+            setCurrentVideo(LOOKDOWN);
+            break;
+          case "hi":
+            setCurrentVideo(HI);
+            break;
+          default:
+            setCurrentVideo(IDLE);
+            break;
+        }
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
   return (
     <div className="video-page">
       <ReactPlayer
         className="video"
-        url={videos[currentVideoIndex]}
+        url={currentVideo}
         muted={true}
         controls={false}
         width="100%"
         height="100%"
-        onEnded={handleNextVideo} 
+        onEnded={handleNextVideo}
         playing
       />
     </div>
