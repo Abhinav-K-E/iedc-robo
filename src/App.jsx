@@ -7,7 +7,7 @@ import Gallery from "./pages/gallery/Gallery";
 import Events from "./pages/Events/Events";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import useStore from "./store/store";
-import { getRequest,clearHead } from "./utils/Request";
+import { getRequest, clearHead } from "./utils/Request";
 import VideoPage from "./pages/VideoPage/VideoPage";
 
 const App = () => {
@@ -31,6 +31,10 @@ const App = () => {
       }, 10000);
     }
     console.log("intt", intracted);
+    //test
+    setTimeout(() => {
+      setIntracted(false);
+    }, 10000);
 
     return () => {
       clearTimeout(timeoutId);

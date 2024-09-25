@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Dashboard.css";
 import BG from "../../assets/Vector.png";
 import { Link } from "react-router-dom";

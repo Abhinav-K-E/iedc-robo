@@ -58,3 +58,18 @@ section:has(.box:hover) .box:not(:hover) {
 .box-5 {
   background-image: url("https://a-static.besthdwallpaper.com/tom-clancy-s-ghost-recon-wildlands-wallpaper-2800x2100-2655_28.jpg");
 }
+
+.image-gallery{
+  width: 1000px;
+  padding: 0px 60px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 40px;
+  overflow: auto;
+}
+
+.image-card{
+  width: 100%;
+  height: 400px;
+  opacity: .7;
+}

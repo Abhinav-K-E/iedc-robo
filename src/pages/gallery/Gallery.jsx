@@ -1,6 +1,7 @@
 import React from "react";
 import "./gallery.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import IMG01 from "../../assets/IMG01.jpeg";
 
 const Gallery = () => {
   return (
@@ -18,13 +19,21 @@ const Gallery = () => {
           />
         </svg>
       </div>
-      <section>
+      {/* <section >
         <div class="box box-1"></div>
         <div class="box box-2"></div>
         <div class="box box-3"></div>
         <div class="box box-4"></div>
         <div class="box box-5"></div>
-      </section>
+      </section> */}
+      <div className="image-gallery">
+        <img className="image-card" src={IMG01} alt="" />
+        <img className="image-card" src={IMG01} alt="" />
+        <img className="image-card" src={IMG01} alt="" />
+        <img className="image-card" src={IMG01} alt="" />
+        <img className="image-card" src={IMG01} alt="" />
+        <img className="image-card" src={IMG01} alt="" />
+      </div>
       {/* <Swiper
         spaceBetween={50}
         slidesPerView={3}

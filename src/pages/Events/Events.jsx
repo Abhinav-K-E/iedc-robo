@@ -1,9 +1,10 @@
 import React from "react";
 import "./Events.css";
+import IMG01 from "../../assets/about.jpeg";
 
 const Events = () => {
   return (
-    <div className="about">
+    <div className="eventss">
       <h1 className="head">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +20,25 @@ const Events = () => {
       </h1>
       <div className="event-cards">
         <div className="event-card">
-
+          <img className="event-image" src={IMG01} alt="" />
+          <h3 className="event-title">Event 1</h3>
+          <p className="event-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+          </p>
+        </div>
+        <div className="event-card">
+          <img className="event-image" src={IMG01} alt="" />
+          <h3 className="event-title">Event 1</h3>
+          <p className="event-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+          </p>
+        </div>
+        <div className="event-card">
+          <img className="event-image" src={IMG01} alt="" />
+          <h3 className="event-title">Event 1</h3>
+          <p className="event-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+          </p>
         </div>
       </div>
     </div>
