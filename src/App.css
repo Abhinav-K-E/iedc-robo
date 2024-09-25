@@ -24,3 +24,7 @@
   z-index: 10;
   opacity: 0; 
 }
+
+::-webkit-scrollbar{
+  width: 0;
+}

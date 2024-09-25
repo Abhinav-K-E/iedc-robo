@@ -5,6 +5,7 @@ import TIE from "../../assets/tie.jpg";
 import { Link } from "react-router-dom";
 import useStore from "../../store/store";
 
+
 const Home = () => {
   const { isIntract, setIntraction,intracted,setIntracted } = useStore();
   
