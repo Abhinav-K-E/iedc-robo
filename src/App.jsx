@@ -30,7 +30,9 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <button className="hidden-btn" onClick={toggleFullscreen}>Toggle Fullscreen</button>
+      <button className="hidden-btn" onClick={toggleFullscreen}>
+        Toggle Fullscreen
+      </button>
 
       <Routes>
         <Route path="/" element={<Home />} />

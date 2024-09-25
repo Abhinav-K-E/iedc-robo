@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./VideoPage.css";
 import ReactPlayer from "react-player";
 import IDLE from "../../assets/idle.mp4";
 import HI from "../../assets/hi.mp4";
 import LOOKDOWN from "../../assets/lookdown.mp4";
-
 import { baseUrl } from "../../contants";
 
 const VideoPage = () => {
   const [currentVideo, setCurrentVideo] = useState(IDLE);
-
+  const playerRef = useRef(null); // Reference to ReactPlayer
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -17,28 +16,15 @@ const VideoPage = () => {
     }
   };
 
-  const handleNextVideo = async () => {
+  const fetchVideoStatus = async () => {
+    console.log("fetching video status...");
     try {
       const response = await fetch(`${baseUrl}/head_status`, {
         headers: { "ngrok-skip-browser-warning": "69420" },
       });
 
       if (response.ok) {
-        setCurrentVideo(IDLE);
-        const data = await response.json();
-        console.log("Fetched data:", data.emotion);
-
-        switch (data.emotion) {
-          case "lookDown":
-            setCurrentVideo(LOOKDOWN);
-            break;
-          case "hi":
-            setCurrentVideo(HI);
-            break;
-          default:
-            setCurrentVideo(IDLE);
-            break;
-        }
+        return response.json();
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -47,19 +33,66 @@ const VideoPage = () => {
     }
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchhh(false);
+    }, 500);
+  }, []);
+
+  useEffect(() => {
+    const changeRequest = async () => {
+      const res = await fetch(`${baseUrl}/body_update?interacting=true`, {
+        headers: { "ngrok-skip-browser-warning": "69420" },
+      });
+    };
+  }, [currentVideo]);
+  const handleEnded = async () => {
+    console.log("video ended");
+    const res = await fetchhh(true);
+    console.log(res);
+
+    restartVideo();
+  };
+
+  const restartVideo = () => {
+    console.log("ddd");
+    if (playerRef.current) {
+      playerRef.current.seekTo(0); // Restart the video from the beginning
+    }
+  };
+  const fetchhh = async (ended) => {
+    const res = await fetchVideoStatus();
+    console.log(res);
+    var emotion = res.emotion;
+    if (emotion != "idle" || ended) {
+      if (emotion === "lookDown") {
+        setCurrentVideo(LOOKDOWN);
+      } else if (emotion === "sayHI") {
+        setCurrentVideo(HI);
+      } else {
+        setTimeout(() => {
+          setCurrentVideo(IDLE);
+        }, 1000);
+      }
+    }
+  };
   return (
     <div className="video-page">
-      <button className="hidden-btn" onClick={toggleFullscreen}>Toggle Fullscreen</button>
+      <button className="hidden-btn" onClick={toggleFullscreen}>
+        Toggle Fullscreen
+      </button>
 
       <ReactPlayer
+        ref={playerRef}
         className="video"
         url={currentVideo}
         muted={true}
         controls={false}
         width="100%"
         height="100%"
-        onEnded={handleNextVideo}
         playing
+        onEnded={handleEnded}
+        // loop={true}
       />
     </div>
   );
