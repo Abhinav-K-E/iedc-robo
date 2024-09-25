@@ -5,11 +5,23 @@ import IDLE from "../../assets/idle.mp4";
 import HI from "../../assets/hi.mp4";
 import LOOKDOWN from "../../assets/lookdown.mp4";
 import { baseUrl } from "../../contants";
+import backgroundVoice from "../../assets/audio/bgmusic.m4a";
 
 const VideoPage = () => {
   const [currentVideo, setCurrentVideo] = useState(IDLE);
   const [currentVideoName, setCurrentVideoName] = useState(IDLE);
   const playerRef = useRef(null);
+
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const playAudio = () => {
+      if (currentVideoName == "sayHI") {
+        audioRef.current.play();
+      }
+    };
+    playAudio();
+  }, [currentVideo]);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -79,12 +91,14 @@ const VideoPage = () => {
         setCurrentVideoName("sayHI");
       } else {
         setCurrentVideo(IDLE);
-          setCurrentVideoName("idle");
+        setCurrentVideoName("idle");
       }
     }
   };
   return (
     <div className="video-page">
+      <audio ref={audioRef} src={backgroundVoice} />
+
       <button className="hidden-btn" onClick={toggleFullscreen}>
         Toggle Fullscreen
       </button>

@@ -10,11 +10,14 @@ import useStore from "./store/store";
 import { getRequest, clearHead } from "./utils/Request";
 import VideoPage from "./pages/VideoPage/VideoPage";
 
+
 const App = () => {
   const { isIntract, setIntraction, intracted, setIntracted } = useStore();
   const isInitialMount = useRef(true);
   const navigate = useNavigate();
   let timeoutId;
+
+  
 
   useEffect(() => {
     if (isInitialMount.current) {
@@ -53,6 +56,7 @@ const App = () => {
       <button className="hidden-btn" onClick={toggleFullscreen}>
         Toggle Fullscreen
       </button>
+      
 
       <Routes>
         <Route path="/" element={<Home />} />

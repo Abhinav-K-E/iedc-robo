@@ -21,21 +21,21 @@ const Events = () => {
       <div className="event-cards">
         <div className="event-card">
           <img className="event-image" src={IMG01} alt="" />
-          <h3 className="event-title">Event 1</h3>
+          <h3 className="event-title">Ideathon</h3>
           <p className="event-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
           </p>
         </div>
         <div className="event-card">
           <img className="event-image" src={IMG01} alt="" />
-          <h3 className="event-title">Event 1</h3>
+          <h3 className="event-title">Hack.dev</h3>
           <p className="event-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
           </p>
         </div>
         <div className="event-card">
           <img className="event-image" src={IMG01} alt="" />
-          <h3 className="event-title">Event 1</h3>
+          <h3 className="event-title">Robotics</h3>
           <p className="event-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
           </p>
