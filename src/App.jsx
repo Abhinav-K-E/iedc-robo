@@ -22,8 +22,16 @@ const App = () => {
     getRequest();
   }, [isIntract]);
 
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    }
+  };
+
   return (
     <div className="wrapper">
+      <button className="hidden-btn" onClick={toggleFullscreen}>Toggle Fullscreen</button>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />

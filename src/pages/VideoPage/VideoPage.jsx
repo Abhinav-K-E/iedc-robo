@@ -10,6 +10,13 @@ import { baseUrl } from "../../contants";
 const VideoPage = () => {
   const [currentVideo, setCurrentVideo] = useState(IDLE);
 
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    }
+  };
+
   const handleNextVideo = async () => {
     try {
       const response = await fetch(`${baseUrl}/head_status`, {
@@ -42,6 +49,8 @@ const VideoPage = () => {
 
   return (
     <div className="video-page">
+      <button className="hidden-btn" onClick={toggleFullscreen}>Toggle Fullscreen</button>
+
       <ReactPlayer
         className="video"
         url={currentVideo}
