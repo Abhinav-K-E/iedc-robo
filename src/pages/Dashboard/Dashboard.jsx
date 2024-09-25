@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useStore from "../../store/store";
 
 const Dashboard = () => {
-  const { isIntract, setIntraction } = useStore();
+  const { isIntract, setIntraction, intracted, setIntracted } = useStore();
   return (
     <div className="dash">
       <h1 className="head">
@@ -27,7 +27,10 @@ const Dashboard = () => {
           <Link
             to="/about"
             className="card"
-            onClick={() => setIntraction(!isIntract)}
+            onClick={() => {
+              setIntraction(!isIntract);
+              setIntracted(true);
+            }}
           >
             <div className="card-name">
               <svg
@@ -62,7 +65,10 @@ const Dashboard = () => {
           <Link
             className="card"
             to="/gallery"
-            onClick={() => setIntraction(!isIntract)}
+            onClick={() => {
+              setIntraction(!isIntract);
+              setIntracted(true);
+            }}
           >
             <div className="card-name">
               <svg
@@ -98,7 +104,10 @@ const Dashboard = () => {
         <Link
           to="/events"
           className="cards-inline"
-          onClick={() => setIntraction(!isIntract)}
+          onClick={() => {
+            setIntraction(!isIntract);
+            setIntracted(true);
+          }}
         >
           <div className="card">
             <div className="card-name">

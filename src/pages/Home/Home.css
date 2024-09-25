@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    padding: 20px;
 }
 
 .home-img{
@@ -30,6 +31,6 @@
     margin-top: 50px;
     bottom: 100px;
     right: 0px;
-    padding: 20px 40px;
+    padding: 20px 60px;
     cursor: pointer;
 }

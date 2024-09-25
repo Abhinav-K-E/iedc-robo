@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import useStore from "../../store/store";
 
 const Home = () => {
-  const { isIntract, setIntraction } = useStore();
+  const { isIntract, setIntraction,intracted,setIntracted } = useStore();
   
   return (
     <div className="home">
@@ -18,6 +18,8 @@ const Home = () => {
         className="btn"
         onClick={() => {
           setIntraction();
+          setIntracted(true);
+          console.log("inttuuuuu", intracted);
           console.log(isIntract)
         }}
       >

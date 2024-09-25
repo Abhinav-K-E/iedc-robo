@@ -8,7 +8,8 @@ import { baseUrl } from "../../contants";
 
 const VideoPage = () => {
   const [currentVideo, setCurrentVideo] = useState(IDLE);
-  const playerRef = useRef(null); // Reference to ReactPlayer
+  const [currentVideoName, setCurrentVideoName] = useState(IDLE);
+  const playerRef = useRef(null);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -40,11 +41,16 @@ const VideoPage = () => {
   }, []);
 
   useEffect(() => {
-    const changeRequest = async () => {
-      const res = await fetch(`${baseUrl}/body_update?interacting=true`, {
-        headers: { "ngrok-skip-browser-warning": "69420" },
-      });
+    const changeHead = async () => {
+      const res = await fetch(
+        `${baseUrl}/head_update?status=${currentVideoName}`,
+        {
+          headers: { "ngrok-skip-browser-warning": "69420" },
+        }
+      );
+      console.log(res);
     };
+    changeHead();
   }, [currentVideo]);
   const handleEnded = async () => {
     console.log("video ended");
@@ -67,12 +73,13 @@ const VideoPage = () => {
     if (emotion != "idle" || ended) {
       if (emotion === "lookDown") {
         setCurrentVideo(LOOKDOWN);
+        setCurrentVideoName("lookDown");
       } else if (emotion === "sayHI") {
         setCurrentVideo(HI);
+        setCurrentVideoName("sayHI");
       } else {
-        setTimeout(() => {
-          setCurrentVideo(IDLE);
-        }, 1000);
+        setCurrentVideo(IDLE);
+          setCurrentVideoName("idle");
       }
     }
   };

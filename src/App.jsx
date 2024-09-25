@@ -5,14 +5,16 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import About from "./pages/About/About";
 import Gallery from "./pages/gallery/Gallery";
 import Events from "./pages/Events/Events";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import useStore from "./store/store";
-import { getRequest } from "./utils/Request";
+import { getRequest,clearHead } from "./utils/Request";
 import VideoPage from "./pages/VideoPage/VideoPage";
 
 const App = () => {
-  const { isIntract, setIntraction } = useStore();
+  const { isIntract, setIntraction, intracted, setIntracted } = useStore();
   const isInitialMount = useRef(true);
+  const navigate = useNavigate();
+  let timeoutId;
 
   useEffect(() => {
     if (isInitialMount.current) {
@@ -20,6 +22,20 @@ const App = () => {
       return;
     }
     getRequest();
+    if (intracted == true) {
+      timeoutId = setInterval(() => {
+        console.log("isIntract");
+        navigate("/");
+        setIntracted(false);
+        clearHead();
+      }, 10000);
+    }
+    console.log("intt", intracted);
+
+    return () => {
+      clearTimeout(timeoutId);
+      console.log("Timeout cleared!");
+    };
   }, [isIntract]);
 
   const toggleFullscreen = () => {
