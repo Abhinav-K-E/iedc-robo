@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import "./Dashboard.css";
 import BG from "../../assets/Vector.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useStore from "../../store/store";
 
 const Dashboard = () => {
   const { isIntract, setIntraction, intracted, setIntracted } = useStore();
+  const navigate = useNavigate();
   return (
     <div className="dash">
       <h1 className="head">
@@ -143,6 +144,21 @@ const Dashboard = () => {
         </Link>
       </div>
       <img src={BG} alt="" className="bg" />
+      <div className="back-btn"
+      onClick={()=>{navigate('/')}}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={24}
+          height={24}
+          fill="none"
+        >
+          <path
+            fill="#fff"
+            d="m16.95 19.071-1.414 1.414L7.05 12l8.486-8.485 1.414 1.414-7.071 7.07z"
+          />
+        </svg>
+      </div>
     </div>
   );
 };

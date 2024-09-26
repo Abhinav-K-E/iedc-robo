@@ -7,8 +7,10 @@ import IMG03 from "../../assets/IMG01.jpeg";
 import IMG04 from "../../assets/IMG01.jpeg";
 import IMG05 from "../../assets/IMG01.jpeg";
 import IMG06 from "../../assets/IMG01.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const Gallery = () => {
+  const navigate = useNavigate();
   return (
     <div className="gallery">
       <div className="head">
@@ -50,6 +52,24 @@ const Gallery = () => {
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>
       </Swiper> */}
+      <div
+        className="back-btn"
+        onClick={() => {
+          navigate("/dashboard");
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={24}
+          height={24}
+          fill="none"
+        >
+          <path
+            fill="#fff"
+            d="m16.95 19.071-1.414 1.414L7.05 12l8.486-8.485 1.414 1.414-7.071 7.07z"
+          />
+        </svg>
+      </div>
     </div>
   );
 };

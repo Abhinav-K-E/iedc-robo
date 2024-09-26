@@ -1,8 +1,10 @@
 import React from "react";
 import "./Events.css";
 import IMG01 from "../../assets/about.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const Events = () => {
+  const navigate = useNavigate();
   return (
     <div className="eventss">
       <h1 className="head">
@@ -40,6 +42,24 @@ const Events = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
           </p>
         </div>
+      </div>
+      <div
+        className="back-btn"
+        onClick={() => {
+          navigate("/dashboard");
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={24}
+          height={24}
+          fill="none"
+        >
+          <path
+            fill="#fff"
+            d="m16.95 19.071-1.414 1.414L7.05 12l8.486-8.485 1.414 1.414-7.071 7.07z"
+          />
+        </svg>
       </div>
     </div>
   );
