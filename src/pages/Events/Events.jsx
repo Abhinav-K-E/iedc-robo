@@ -1,6 +1,8 @@
 import React from "react";
 import "./Events.css";
-import IMG01 from "../../assets/about.jpeg";
+import IMG01 from "../../assets/event02.jpeg";
+import IMG02 from "../../assets/event01.jpeg";
+import IMG03 from "../../assets/event03.jpeg";
 import { useNavigate } from "react-router-dom";
 
 const Events = () => {
@@ -29,14 +31,14 @@ const Events = () => {
           </p>
         </div>
         <div className="event-card">
-          <img className="event-image" src={IMG01} alt="" />
+          <img className="event-image" src={IMG02} alt="" />
           <h3 className="event-title">Hack.dev</h3>
           <p className="event-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
           </p>
         </div>
         <div className="event-card">
-          <img className="event-image" src={IMG01} alt="" />
+          <img className="event-image" src={IMG03} alt="" />
           <h3 className="event-title">Robotics</h3>
           <p className="event-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet

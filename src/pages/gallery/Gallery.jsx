@@ -2,11 +2,11 @@ import React from "react";
 import "./gallery.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import IMG01 from "../../assets/IMG01.jpeg";
-import IMG02 from "../../assets/IMG01.jpeg";
-import IMG03 from "../../assets/IMG01.jpeg";
-import IMG04 from "../../assets/IMG01.jpeg";
-import IMG05 from "../../assets/IMG01.jpeg";
-import IMG06 from "../../assets/IMG01.jpeg";
+import IMG02 from "../../assets/IMG02.jpeg";
+import IMG03 from "../../assets/IMG03.jpeg";
+import IMG04 from "../../assets/IMG04.jpeg";
+import IMG05 from "../../assets/IMG05.jpeg";
+import IMG06 from "../../assets/IMG06.jpeg";
 import { useNavigate } from "react-router-dom";
 
 const Gallery = () => {
